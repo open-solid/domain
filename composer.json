@@ -1,0 +1,34 @@
+{
+    "name": "open-solid/domain-event",
+    "description": "Publish and subscriber domain events",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Yonel Ceruto",
+            "email": "patch@yceruto.dev"
+        }
+    ],
+    "require": {
+        "php": ">=8.2",
+        "open-solid/messenger": "^1.0",
+        "symfony/polyfill-uuid": "^1.29"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^11.1",
+        "symfony/messenger": "^7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "OpenSolid\\DomainEvent\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "OpenSolid\\DomainEvent\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit tests"
+    }
+}
