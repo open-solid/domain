@@ -6,12 +6,12 @@
     "authors": [
         {
             "name": "Yonel Ceruto",
-            "email": "patch@yceruto.dev"
+            "email": "open@yceruto.dev"
         }
     ],
     "require": {
         "php": ">=8.2",
-        "open-solid/messenger": "^1.0",
+        "open-solid/messenger": "^1.0.2",
         "symfony/polyfill-uuid": "^1.29"
     },
     "require-dev": {
