@@ -17,6 +17,9 @@ use OpenSolid\Domain\Event\DomainEvent;
 
 trait InMemoryEventStoreTrait
 {
+    /**
+     * @var array<class-string<DomainEvent>, DomainEvent>
+     */
     private array $domainEvents = [];
 
     final protected function pushDomainEvent(DomainEvent $domainEvent): void

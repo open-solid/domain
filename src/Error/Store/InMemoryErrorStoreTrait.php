@@ -17,6 +17,9 @@ use OpenSolid\Domain\Error\DomainError;
 
 trait InMemoryErrorStoreTrait
 {
+    /**
+     * @var array<DomainError>
+     */
     private array $errors = [];
 
     final protected function pushDomainError(string|DomainError $error): void
