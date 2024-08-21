@@ -13,8 +13,8 @@ declare(strict_types=1);
 
 namespace OpenSolid\Domain\Tests\Event\Bus;
 
-use OpenSolid\Bus\Handler\MessageHandlersCountPolicy;
-use OpenSolid\Bus\Handler\MessageHandlersLocator;
+use OpenSolid\Bus\Handler\HandlersCountPolicy;
+use OpenSolid\Bus\Handler\HandlersLocator;
 use OpenSolid\Bus\Middleware\HandlingMiddleware;
 use OpenSolid\Bus\NativeLazyMessageBus;
 use OpenSolid\Bus\NativeMessageBus;
@@ -36,9 +36,9 @@ class NativeDomainEventBusTest extends TestCase
 
         $nativeMessageBus = new NativeMessageBus([
             new HandlingMiddleware(
-                new MessageHandlersLocator([
+                new HandlersLocator([
                     EntityCreated::class => [$subscriber1, $subscriber2],
-                ]), MessageHandlersCountPolicy::NO_HANDLER
+                ]), policy: HandlersCountPolicy::NO_HANDLER
             ),
         ]);
         $bus = new NativeEventBus(new NativeLazyMessageBus($nativeMessageBus));
@@ -55,8 +55,8 @@ class NativeDomainEventBusTest extends TestCase
 
         $nativeMessageBus = new NativeMessageBus([
             new HandlingMiddleware(
-                new MessageHandlersLocator([]),
-                MessageHandlersCountPolicy::NO_HANDLER,
+                new HandlersLocator([]),
+                policy: HandlersCountPolicy::NO_HANDLER,
             ),
         ]);
         $bus = new NativeEventBus(new NativeLazyMessageBus($nativeMessageBus));
